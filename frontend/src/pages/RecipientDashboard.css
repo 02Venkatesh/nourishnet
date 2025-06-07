@@ -1,0 +1,560 @@
+/* ──────────────────────────────────────────────────────────────── */
+/* RecipientDashboard.css – “Extremely Beautiful”                 */
+/* ──────────────────────────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────────────────────── */
+/* 1. Import Google Font                                       */
+/* ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ───────────────────────────────────────────────────────────── */
+/* 2. Root Variables                                           */
+/* ───────────────────────────────────────────────────────────── */
+:root {
+  /* Color Palette */
+  --color-primary: #43a047;          /* Green 600 */
+  --color-primary-dark: #388e3c;     /* Green 700 */
+  --color-secondary: #0288d1;        /* Blue 600 */
+  --color-danger: #c62828;           /* Red 600 */
+  --color-danger-dark: #b71c1c;      /* Red 700 */
+  --color-bg-light: #f9fafb;         /* Off-white */
+  --color-bg-paper: #ffffff;         /* White */
+  --color-text-dark: #212121;        /* Dark text */
+  --color-text-muted: #616161;       /* Grey */
+  --color-border: #e0e0e0;           /* Light border */
+  --color-shadow-light: rgba(0, 0, 0, 0.04);
+  --color-shadow-strong: rgba(0, 0, 0, 0.08);
+
+  /* Spacing Scale */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Typography */
+  --font-family-base: 'Poppins', 'Segoe UI', sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 1.25rem;   /* 20px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --line-height-base: 1.6;
+
+  /* Border & Radius */
+  --radius-rounded: 16px;
+  --radius-small: 8px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 12px var(--color-shadow-light);
+  --shadow-card-hover: 0 10px 24px var(--color-shadow-strong);
+  --transition-speed: 0.3s;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 3. Global Resets & Base Styles                               */
+/* ───────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--color-bg-light);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 4. Container & Layout                                         */
+/* ───────────────────────────────────────────────────────────── */
+.recipient-dashboard-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 5. Header / Base Location Section                              */
+/* ───────────────────────────────────────────────────────────── */
+.recipient-dashboard-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 600px) {
+  .recipient-dashboard-header {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-md);
+    text-align: center;
+  }
+}
+
+.base-location-section {
+  background-color: var(--color-bg-paper);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.base-location-section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.base-location-section span {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.change-location-btn {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-align: center;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.change-location-btn:hover,
+.change-location-btn:focus {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.recipient-dashboard-header h2 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 6. Accepted Donations Button                                   */
+/* ───────────────────────────────────────────────────────────── */
+.accepted-btn {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.accepted-btn:hover,
+.accepted-btn:focus {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 7. Filter Dropdown                                              */
+/* ───────────────────────────────────────────────────────────── */
+.filter-container {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.filter-container label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.filter-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  background-color: var(--color-bg-paper);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath fill='%23616161' d='M4 6l4 4 4-4H4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 12px;
+  min-width: 180px;
+}
+
+.filter-container select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+  outline: none;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 8. Donation Card                                                */
+/* ───────────────────────────────────────────────────────────── */
+.donation-card {
+  background-color: var(--color-bg-paper);
+  border-radius: var(--radius-rounded);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.donation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Header inside card */
+.donation-header {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.donation-header h3 {
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.donation-header p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xxs);
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 9. Item Table Styling                                          */
+/* ───────────────────────────────────────────────────────────── */
+.item-table-wrapper {
+  overflow-x: auto;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-light);
+}
+
+.item-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.item-table-wrapper th,
+.item-table-wrapper td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-size: var(--font-size-sm);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.item-table-wrapper th {
+  background-color: #f1f8f4;
+  color: var(--header-color);
+  font-weight: 600;
+}
+
+.item-table-wrapper td {
+  background-color: var(--color-bg-paper);
+  color: var(--color-text-dark);
+}
+
+/* Zebra striping and hover */
+.item-table-wrapper tbody tr:nth-child(even) {
+  background-color: rgba(67, 160, 71, 0.05);
+}
+
+.item-table-wrapper tbody tr:hover {
+  background-color: rgba(67, 160, 71, 0.15);
+}
+
+@media (max-width: 768px) {
+  .item-table-wrapper th,
+  .item-table-wrapper td {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0. eight five rem;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 10. Donation Action Buttons                                     */
+/* ───────────────────────────────────────────────────────────── */
+.donation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.donation-actions button {
+  flex: 1;
+  max-width: 140px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+/* View Map */
+.view-map-btn {
+  background-color: #757575;
+  color: #fff;
+}
+
+.view-map-btn:hover,
+.view-map-btn:focus {
+  background-color: #5c5c5c;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Accept */
+.accept-btn {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.accept-btn:hover,
+.accept-btn:focus {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Reject */
+.reject-btn {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.reject-btn:hover,
+.reject-btn:focus {
+  background-color: var(--color-danger-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Stack on very small screens */
+@media (max-width: 600px) {
+  .donation-actions {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 11. Utility & Empty States                                       */
+/* ───────────────────────────────────────────────────────────── */
+.recipient-dashboard-container > p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+/* Remove native select arrows in IE */
+.recipient-dashboard-container select::-ms-expand {
+  display: none;
+}
+
+
+
+
+
+.revoke-btn {
+  background-color: #c62828;      /* Red 600 */
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.revoke-btn:hover,
+.revoke-btn:focus {
+  background-color: #b71c1c;      /* Red 700 */
+  transform: translateY(-1px);
+  outline: none;
+}
+
+
+
+/* Highlight donation-card when any item is expired */
+.expired-row {
+
+  border-left: 4px solid #e57373;  /* deeper red stripe */
+}
+
+
+/* Highlight only the <tr> whose expiry is past */
+.expired-row {
+  background-color: #d13b51;   /* pale red row background */
+}
+
+.expired-row td {
+  color: #c62828;              /* red text for clarity */
+  font-weight: 500;
+}
+
+.pickup-btn {
+  background-color: #2e7d32;     /* Deep Green */
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;        /* Same as revoke */
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.pickup-btn:hover,
+.pickup-btn:focus {
+  background-color: #1b5e20;     /* Darker Green on hover */
+  transform: translateY(-1px);
+  outline: none;
+}
+
+
+
+
+
+.completed-btn {
+  background-color: #3949ab; /* Indigo 600 */
+  color: #ffffff;
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-lg);
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.completed-btn:hover,
+.completed-btn:focus {
+  background-color: #303f9f; /* Indigo 700 */
+  transform: translateY(-2px);
+  outline: none;
+}
+
+
+
+.logout-container {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.logout-btn {
+  background-color: #e53e3e;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c53030;
+}
+
+
+
+
+
+
+
+/* On small screens, make the logout button static (no overlap) */
+@media (max-width: 600px) {
+  .logout-container {
+    position: static !important;   /* remove absolute positioning */
+    margin-bottom: 1rem;           /* give space below */
+    text-align: right;             /* keep it right-aligned */
+  }
+  .back-btn {
+    display: inline-block;
+    margin-bottom: 1rem;           /* ensure it sits below logout */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

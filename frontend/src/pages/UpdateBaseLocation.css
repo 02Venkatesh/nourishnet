@@ -1,0 +1,149 @@
+/* UpdateBaseLocation.css */
+
+/* ───────────────────────────────────────────────────────────── */
+/* 1. Full‐screen “backdrop” behind the modal                   */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 2. Center modal box                                           */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  background: var(--color-bg-paper);
+  border-radius: var(--radius-rounded);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  z-index: 101;
+  font-family: var(--font-family-base);
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 3. Modal heading                                              */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-modal h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 4. Search box wrapper & input                                  */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-search-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-sm);
+}
+
+.ubl-search-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  outline: none;
+  transition: border-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+}
+
+.ubl-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 5. Map container                                               */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-map-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 300px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-rounded);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 6. Current address display                                      */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-current-address {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+/* ───────────────────────────────────────────────────────────── */
+/* 7. Save & Cancel buttons                                        */
+/* ───────────────────────────────────────────────────────────── */
+.ubl-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.ubl-save-btn,
+.ubl-cancel-btn {
+  flex: 1;
+  max-width: 140px;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-small);
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+/* Save */
+.ubl-save-btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-primary-dark);
+}
+
+.ubl-save-btn:hover,
+.ubl-save-btn:focus {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Cancel */
+.ubl-cancel-btn {
+  background-color: #f0f0f0;
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-border);
+}
+
+.ubl-cancel-btn:hover,
+.ubl-cancel-btn:focus {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Disabled state if saving */
+.ubl-save-btn:disabled {
+  background-color: var(--color-border);
+  cursor: default;
+  transform: none;
+}
+

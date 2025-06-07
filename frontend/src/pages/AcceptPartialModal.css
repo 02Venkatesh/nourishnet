@@ -1,0 +1,207 @@
+/* AcceptPartialModal.css */
+
+/* --------------------------------------------------------------
+   1) Overlay & Modal Container
+   -------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 600px;
+  max-width: 95%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  animation: fadeInModal 0.2s ease-out;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-box h2 {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  color: #37474f;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------
+   2) Table Styling (with Zebra Stripes and Hover)
+   -------------------------------------------------------------- */
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+}
+
+.modal-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f3f9f6;
+  color: #37474f;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 12px 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+.modal-table td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #424242;
+}
+
+/* Zebra stripes */
+.modal-table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+.modal-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Hover highlight */
+.modal-table tbody tr:hover {
+  background-color: #e8f5e9;
+}
+
+/* --------------------------------------------------------------
+   3) Expired Row Styling
+   -------------------------------------------------------------- */
+.modal-table .expired-row {
+  background-color: #fff3f3 !important;  /* pale red */
+}
+
+.modal-table .expired-row td {
+  color: #d32f2f;      /* dark red text for clarity */
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------
+   4) Number Input Styling
+   -------------------------------------------------------------- */
+.modal-table input[type='number'] {
+  width: 80px;
+  padding: 6px 8px;
+  font-size: 0.95rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+/* Remove browser spinners */
+.modal-table input[type='number']::-webkit-outer-spin-button,
+.modal-table input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.modal-table input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Input focus */
+.modal-table input[type='number']:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+/* --------------------------------------------------------------
+   5) Modal Action Buttons
+   -------------------------------------------------------------- */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: auto; /* sticks buttons to bottom if table scrolls */
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-transform: uppercase;
+}
+
+.confirm-btn {
+  background-color: #2e7d32; /* dark green */
+  color: #ffffff;
+}
+.confirm-btn:hover {
+  background-color: #27632a;
+  transform: translateY(-1px);
+}
+.confirm-btn:active {
+  transform: translateY(0);
+  background-color: #1a4e23;
+}
+
+.cancel-btn {
+  background-color: #c62828; /* dark red */
+  color: #ffffff;
+}
+.cancel-btn:hover {
+  background-color: #b71c1c;
+  transform: translateY(-1px);
+}
+.cancel-btn:active {
+  transform: translateY(0);
+  background-color: #8e1a18;
+}
+
+/* --------------------------------------------------------------
+   6) Responsive Adjustments
+   -------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .modal-box {
+    width: 90%;
+    padding: 16px;
+  }
+  .modal-table thead th,
+  .modal-table td {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+  }
+  .modal-table input[type='number'] {
+    width: 60px;
+    padding: 4px 6px;
+    font-size: 0.85rem;
+  }
+  .modal-actions button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}

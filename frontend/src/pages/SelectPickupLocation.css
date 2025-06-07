@@ -1,0 +1,107 @@
+.location-wrapper {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #f9fbff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.location-header {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2e3b55;
+  margin-bottom: 24px;
+}
+
+.search-box input {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 0 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.address-display {
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #34495e;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.address-display span {
+  margin-left: 8px;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.button-row button {
+  padding: 12px 20px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button-row button:hover {
+  background: #135ba1;
+}
+
+.tip-box {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.tip-box span:first-child {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.back-button {
+  background-color: #1976d2;    /* new blue */
+  color: #ffffff;               /* white text for contrast */
+  border: 1px solid #1976d2;    /* match border to background */
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #135ba1;    /* darker blue on hover */
+  border-color: #135ba1;
+}
+
+
