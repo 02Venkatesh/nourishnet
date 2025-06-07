@@ -29,7 +29,7 @@ const RecipientDashboard = () => {
   const fetchDonations = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/donation/unaccepted', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/donation/unaccepted', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -74,7 +74,7 @@ const RecipientDashboard = () => {
   const handleReject = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/donation/${id}/status`, {
+      const res = await fetch(`https://nourishnet-backend-wgz2.onrender.com/api/donation/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const RecipientDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       const res = await fetch(
-        `http://localhost:5000/api/donation/${donation.donation_id}/lock`,
+        `https://nourishnet-backend-wgz2.onrender.com/api/donation/${donation.donation_id}/lock`,
         {
           method: 'POST',
           headers: { Authorization: `Bearer ${token}` },
@@ -127,7 +127,7 @@ const RecipientDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await fetch(
-        `http://localhost:5000/api/donation/${selectedDonation.donation_id}/unlock`,
+        `https://nourishnet-backend-wgz2.onrender.com/api/donation/${selectedDonation.donation_id}/unlock`,
         {
           method: 'PATCH',
           headers: { Authorization: `Bearer ${token}` },
@@ -144,7 +144,7 @@ const RecipientDashboard = () => {
   const handlePartialAccept = async (donationId, items) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/donation/accept-partial`, {
+      const res = await fetch(`https://nourishnet-backend-wgz2.onrender.com/api/donation/accept-partial`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

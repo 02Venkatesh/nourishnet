@@ -16,7 +16,7 @@ function LoginPage() {
   setError('');
 
   try {
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch("https://nourishnet-backend-wgz2.onrender.com/api/auth/login", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
@@ -86,7 +86,7 @@ function LoginPage() {
               required
             />
             <button type="submit">Login</button>
-            <a href="http://localhost:5000/api/auth/google">
+            <a href="https://nourishnet-backend-wgz2.onrender.com/api/auth/google">
     <button type="button" className="google-btn">Login with Google</button>
   </a>  
             <p className="login-text">Don't have an account? <a href="/register">Register</a></p>

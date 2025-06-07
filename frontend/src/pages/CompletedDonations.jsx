@@ -26,7 +26,7 @@ const CompletedDonations = () => {
     const fetchCompleted = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/donation/completed-donations', {
+        const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/donation/completed-donations', {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();

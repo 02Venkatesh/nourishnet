@@ -31,7 +31,7 @@ function UpdateBaseLocation({ onClose, onSaved }) {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/users/me', {
+        const res = await axios.get('https://nourishnet-backend-wgz2.onrender.com/api/users/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         const { base_lat, base_lng, base_address, role } = res.data;
@@ -114,7 +114,7 @@ function UpdateBaseLocation({ onClose, onSaved }) {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        'http://localhost:5000/api/users/me/location',
+        'https://nourishnet-backend-wgz2.onrender.com/api/users/me/location',
         {
           address,
           latitude: coords.lat,

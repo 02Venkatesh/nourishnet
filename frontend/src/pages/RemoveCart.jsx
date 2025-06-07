@@ -48,7 +48,7 @@ function RemoveCart({ inventory, setInventory }) {
   const handleConfirmRemoval = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/api/inventory/remove', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/inventory/remove', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function RemoveCart({ inventory, setInventory }) {
   const fetchInventory = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/api/inventory', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/inventory', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

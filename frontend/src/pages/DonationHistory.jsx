@@ -24,7 +24,7 @@
 
     const fetchDonations = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/donation/donations', {
+        const res = await axios.get('https://nourishnet-backend-wgz2.onrender.com/api/donation/donations', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setDonations(res.data);
@@ -47,7 +47,7 @@
       if (!confirmed) return;
 
       try {
-        await axios.delete(`http://localhost:5000/api/donation/donations/${donationId}`, {
+        await axios.delete(`https://nourishnet-backend-wgz2.onrender.com/api/donation/donations/${donationId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("Donation removed and inventory restored!");

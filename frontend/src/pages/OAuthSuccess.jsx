@@ -11,7 +11,7 @@ function OAuthSuccess() {
     if (token) {
       localStorage.setItem('token', token);
 
-      fetch('http://localhost:5000/api/auth/me', {
+      fetch('https://nourishnet-backend-wgz2.onrender.com/api/auth/me', {
         headers: {
           Authorization: `Bearer ${token}`
         }

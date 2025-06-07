@@ -14,7 +14,7 @@ function DashboardWithCart() {
   const fetchInventory = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/api/inventory/all', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/inventory/all', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

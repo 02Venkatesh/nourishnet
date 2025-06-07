@@ -34,7 +34,7 @@ const AcceptedDonations = () => {
       try {
         const token = localStorage.getItem('token');
         const res = await fetch(
-          'http://localhost:5000/api/donation/accepted-by-me',
+          'https://nourishnet-backend-wgz2.onrender.com/api/donation/accepted-by-me',
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -70,7 +70,7 @@ const AcceptedDonations = () => {
     try {
       const token = localStorage.getItem('token');
       const res = await fetch(
-        `http://localhost:5000/api/donation/${donationId}/revoke`,
+        `https://nourishnet-backend-wgz2.onrender.com/api/donation/${donationId}/revoke`,
         {
           method: 'PATCH',
           headers: { Authorization: `Bearer ${token}` },
@@ -192,7 +192,7 @@ const AcceptedDonations = () => {
     try {
       const token = localStorage.getItem('token');
       const res = await fetch(
-        `http://localhost:5000/api/donation/${donation.donation_id}/mark-completed`,
+        `https://nourishnet-backend-wgz2.onrender.com/api/donation/${donation.donation_id}/mark-completed`,
         {
           method: 'PATCH',
           headers: { Authorization: `Bearer ${token}` },

@@ -72,7 +72,7 @@ const handleConfirm = async () => {
 
   try {
     // 1. Save donation (with items)
-    const donationRes = await fetch('http://localhost:5000/api/donation/donate', {
+    const donationRes = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/donation/donate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const handleConfirm = async () => {
     if (!donationId) throw new Error('No donation ID returned');
 
     // 2. Save pickup location
-    const locationRes = await fetch('http://localhost:5000/api/donation/location', {
+    const locationRes = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/donation/location', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

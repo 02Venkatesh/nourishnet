@@ -58,7 +58,7 @@ const goToRemoveCart = () => {
     setMessage('');
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/api/inventory/add', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/inventory/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const goToRemoveCart = () => {
   const fetchInventory = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/api/inventory', {
+      const res = await fetch('https://nourishnet-backend-wgz2.onrender.com/api/inventory', {
     headers: { Authorization: `Bearer ${token}` },
   });
   const data = await res.json();
